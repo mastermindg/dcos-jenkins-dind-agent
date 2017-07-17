@@ -2,7 +2,7 @@
 set -e
 
 echo "==> Launching the Docker daemon..."
-dind dockerd --storage-driver=overlay --insecure-registry registry.marathon.l4lb.thisdcos.directory:5000 &
+-dind dockerd --storage-driver=overlay $DOCKER_EXTRA_OPTS &
 
 while(! docker info > /dev/null 2>&1); do
     echo "==> Waiting for the Docker daemon to come online..."
